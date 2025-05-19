@@ -39,6 +39,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
         .sidebar nav ul li a:hover {
             color: #ffa500;
@@ -59,7 +60,7 @@
             background-color: #ffa500;
             color: #1e1e1e;
         }
-        .hero-section, .testimonial-section, .iframe-section {
+        .main-content {
             margin-left: 240px;
             padding: 40px;
         }
@@ -90,26 +91,8 @@
         .cta-button:hover {
             background-color: #e68a00;
         }
-        .testimonial-section {
-            background-color: #333333;
-            margin-top: 20px;
-        }
-        .testimonial-section h2 {
-            margin-bottom: 20px;
-        }
-        .testimonial {
-            background-color: #292929;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        .iframe-section {
-            background-color: #1e1e1e;
-        }
-        .iframe-section iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
+        section {
+            margin-bottom: 40px;
         }
     </style>
     <script>
@@ -120,7 +103,19 @@
             document.querySelectorAll('.language-switch button').forEach(btn => btn.classList.remove('active'));
             document.getElementById(lang + '-btn').classList.add('active');
         }
-        window.onload = () => setLanguage('ro');
+        window.onload = () => {
+            setLanguage('ro');
+            document.querySelectorAll('.sidebar nav ul li a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = link.getAttribute('href').substring(1);
+                    const section = document.getElementById(id);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
     </script>
 </head>
 <body>
@@ -141,40 +136,53 @@
         </div>
     </div>
 
-    <section class="hero-section">
-        <div class="hero-text">
-            <h1 class="lang-ro">Transformă Suprafețele cu Sablare Profesională</h1>
-            <h1 class="lang-hu">Változtasd meg a felületeket professzionális homokfúvással</h1>
-            <p class="lang-ro">Curățire eficientă și estetică pentru metal, piatră și lemn. Sablare fixă sau mobilă, oriunde în țară.</p>
-            <p class="lang-hu">Hatékony és esztétikus tisztítás fémhez, kőhöz és fához. Fix vagy mobil homokfúvás az ország egész területén.</p>
-            <button class="cta-button">Solicită o ofertă</button>
-        </div>
-        <div class="hero-image">
-            <img src="hero-image.jpg" alt="Sablare camion">
-        </div>
-    </section>
+    <div class="main-content">
+        <section class="hero-section" id="despre-noi">
+            <div class="hero-text">
+                <h1 class="lang-ro">Transformă Suprafețele cu Sablare Profesională</h1>
+                <h1 class="lang-hu">Változtasd meg a felületeket professzionális homokfúvással</h1>
+                <p class="lang-ro">Curățire eficientă și estetică pentru metal, piatră și lemn. Sablare fixă sau mobilă, oriunde în țară.</p>
+                <p class="lang-hu">Hatékony és esztétikus tisztítás fémhez, kőhöz és fához. Fix vagy mobil homokfúvás az ország egész területén.</p>
+                <button class="cta-button">Solicită o ofertă</button>
+            </div>
+            <div class="hero-image">
+                <img src="hero-image.jpg" alt="Sablare camion">
+            </div>
+        </section>
 
-    <section class="testimonial-section">
-        <h2 class="lang-ro">Ce spun clienții noștri</h2>
-        <h2 class="lang-hu">Ügyfeleink véleménye</h2>
-        <div class="testimonial">
-            <p class="lang-ro">"Serviciul de sablare a făcut ca remorca mea să arate ca nouă! Recomand cu încredere."</p>
-            <p class="lang-hu">"A homokfúvás olyan volt, mintha új lenne a pótkocsim! Bátran ajánlom."</p>
-        </div>
-        <div class="testimonial">
-            <p class="lang-ro">"Echipa a fost rapidă, profesionistă și rezultatul a fost excelent!"</p>
-            <p class="lang-hu">"A csapat gyors, profi volt, és az eredmény kiváló lett!"</p>
-        </div>
-        <div class="testimonial">
-            <p class="lang-ro">"Curățarea containerului a fost impecabilă. Cu siguranță voi apela din nou."</p>
-            <p class="lang-hu">"A konténer tisztítása hibátlan volt. Mindenképp újra őket választom."</p>
-        </div>
-    </section>
+        <section id="preturile">
+            <h2 class="lang-ro">Prețurile</h2>
+            <h2 class="lang-hu">Árak</h2>
+            <p class="lang-ro">Prețurile variază în funcție de material și suprafață. Contactați-ne pentru o ofertă personalizată.</p>
+            <p class="lang-hu">Az árak az anyagtól és a felülettől függenek. Kérjen személyre szabott ajánlatot.</p>
+        </section>
 
-    <section class="iframe-section">
-        <h2 class="lang-ro">Mai multe informații</h2>
-        <h2 class="lang-hu">További információk</h2>
-        <iframe src="https://faludidavid.github.io/" title="Informații suplimentare"></iframe>
-    </section>
+        <section id="inainte-dupa">
+            <h2 class="lang-ro">Înainte și După</h2>
+            <h2 class="lang-hu">Előtte és Utána</h2>
+            <p class="lang-ro">Vezi transformările impresionante realizate de echipa noastră.</p>
+            <p class="lang-hu">Nézd meg csapatunk lenyűgöző átalakításait.</p>
+        </section>
+
+        <section id="referinta">
+            <h2 class="lang-ro">Referință</h2>
+            <h2 class="lang-hu">Referenciák</h2>
+            <ul>
+                <li class="lang-ro">Sablare piese auto</li>
+                <li class="lang-ro">Curățare containere</li>
+                <li class="lang-ro">Renovare porți metalice</li>
+                <li class="lang-hu">Autóalkatrészek homokfúvása</li>
+                <li class="lang-hu">Konténer tisztítás</li>
+                <li class="lang-hu">Fémkapuk felújítása</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2 class="lang-ro">Contact</h2>
+            <h2 class="lang-hu">Kapcsolat</h2>
+            <p>Email: faludidavid@gmail.com</p>
+            <p>Telefon: +40 740 123 456</p>
+        </section>
+    </div>
 </body>
 </html>
