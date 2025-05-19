@@ -43,9 +43,27 @@
         .sidebar nav ul li a:hover {
             color: #ffa500;
         }
-        .hero-section {
+        .language-switch {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .language-switch button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            margin: 2px;
+            cursor: pointer;
+        }
+        .language-switch button.active {
+            background-color: #ffa500;
+            color: #1e1e1e;
+        }
+        .hero-section, .testimonial-section, .iframe-section {
             margin-left: 240px;
             padding: 40px;
+        }
+        .hero-section {
             background-color: #292929;
             display: flex;
             align-items: center;
@@ -73,10 +91,11 @@
             background-color: #e68a00;
         }
         .testimonial-section {
-            margin-left: 240px;
-            padding: 40px;
             background-color: #333333;
             margin-top: 20px;
+        }
+        .testimonial-section h2 {
+            margin-bottom: 20px;
         }
         .testimonial {
             background-color: #292929;
@@ -84,7 +103,25 @@
             border-radius: 10px;
             margin-bottom: 15px;
         }
+        .iframe-section {
+            background-color: #1e1e1e;
+        }
+        .iframe-section iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
     </style>
+    <script>
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('.lang-ro').forEach(el => el.style.display = lang === 'ro' ? 'block' : 'none');
+            document.querySelectorAll('.lang-hu').forEach(el => el.style.display = lang === 'hu' ? 'block' : 'none');
+            document.querySelectorAll('.language-switch button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(lang + '-btn').classList.add('active');
+        }
+        window.onload = () => setLanguage('ro');
+    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -98,12 +135,18 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="language-switch">
+            <button id="ro-btn" onclick="setLanguage('ro')">RO</button>
+            <button id="hu-btn" onclick="setLanguage('hu')">HU</button>
+        </div>
     </div>
 
     <section class="hero-section">
         <div class="hero-text">
-            <h1>Transformă Suprafețele cu Sablare Profesională</h1>
-            <p>Curățire eficientă și estetică pentru metal, piatră și lemn. Sablare fixă sau mobilă, oriunde în țară.</p>
+            <h1 class="lang-ro">Transformă Suprafețele cu Sablare Profesională</h1>
+            <h1 class="lang-hu">Változtasd meg a felületeket professzionális homokfúvással</h1>
+            <p class="lang-ro">Curățire eficientă și estetică pentru metal, piatră și lemn. Sablare fixă sau mobilă, oriunde în țară.</p>
+            <p class="lang-hu">Hatékony és esztétikus tisztítás fémhez, kőhöz és fához. Fix vagy mobil homokfúvás az ország egész területén.</p>
             <button class="cta-button">Solicită o ofertă</button>
         </div>
         <div class="hero-image">
@@ -112,17 +155,26 @@
     </section>
 
     <section class="testimonial-section">
-        <h2>Ce spun clienții noștri</h2>
+        <h2 class="lang-ro">Ce spun clienții noștri</h2>
+        <h2 class="lang-hu">Ügyfeleink véleménye</h2>
         <div class="testimonial">
-            <p>"Serviciul de sablare a făcut ca remorca mea să arate ca nouă! Recomand cu încredere."</p>
+            <p class="lang-ro">"Serviciul de sablare a făcut ca remorca mea să arate ca nouă! Recomand cu încredere."</p>
+            <p class="lang-hu">"A homokfúvás olyan volt, mintha új lenne a pótkocsim! Bátran ajánlom."</p>
         </div>
         <div class="testimonial">
-            <p>"Echipa a fost rapidă, profesionistă și rezultatul a fost excelent!"</p>
+            <p class="lang-ro">"Echipa a fost rapidă, profesionistă și rezultatul a fost excelent!"</p>
+            <p class="lang-hu">"A csapat gyors, profi volt, és az eredmény kiváló lett!"</p>
         </div>
         <div class="testimonial">
-            <p>"Curățarea containerului a fost impecabilă. Cu siguranță voi apela din nou."</p>
+            <p class="lang-ro">"Curățarea containerului a fost impecabilă. Cu siguranță voi apela din nou."</p>
+            <p class="lang-hu">"A konténer tisztítása hibátlan volt. Mindenképp újra őket választom."</p>
         </div>
     </section>
 
+    <section class="iframe-section">
+        <h2 class="lang-ro">Mai multe informații</h2>
+        <h2 class="lang-hu">További információk</h2>
+        <iframe src="https://faludidavid.github.io/" title="Informații suplimentare"></iframe>
+    </section>
 </body>
 </html>
