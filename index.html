@@ -15,11 +15,12 @@
             padding: 0;
         }
         .sidebar {
-            width: 200px;
+            width: 220px;
             background-color: #333333;
             padding: 20px;
             position: fixed;
             height: 100vh;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
         .sidebar h1 {
             color: #ffa500;
@@ -31,54 +32,57 @@
             padding: 0;
         }
         .sidebar nav ul li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .sidebar nav ul li a {
             color: #ffffff;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
-        .sidebar .language {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        .sidebar .language a img {
-            width: 24px;
-            height: 16px;
-        }
-        .content {
-            margin-left: 220px;
-            padding: 20px;
-        }
-        .image-container {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .image-container .image {
-            width: 48%;
-        }
-        .image-container .image img {
-            width: 100%;
-            height: auto;
-            border: 2px solid #ffa500;
-        }
-        .image-container .image p {
-            text-align: center;
-            margin-top: 5px;
-        }
-        .content h2 {
+        .sidebar nav ul li a:hover {
             color: #ffa500;
         }
-        .content p, .content ul {
-            margin-bottom: 20px;
+        .hero-section {
+            margin-left: 240px;
+            padding: 40px;
+            background-color: #292929;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .content ul {
-            padding-left: 20px;
+        .hero-text h1 {
+            color: #ffa500;
+            font-size: 2.5rem;
         }
-        .content ul li {
-            list-style-type: disc;
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .cta-button {
+            background-color: #ffa500;
+            color: #1e1e1e;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+        .cta-button:hover {
+            background-color: #e68a00;
+        }
+        .testimonial-section {
+            margin-left: 240px;
+            padding: 40px;
+            background-color: #333333;
+            margin-top: 20px;
+        }
+        .testimonial {
+            background-color: #292929;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -94,46 +98,31 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <div class="language">
-            <a href="#"><img src="hu-flag.png" alt="HU"></a>
-            <a href="#"><img src="ro-flag.png" alt="RO"></a>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>Transformă Suprafețele cu Sablare Profesională</h1>
+            <p>Curățire eficientă și estetică pentru metal, piatră și lemn. Sablare fixă sau mobilă, oriunde în țară.</p>
+            <button class="cta-button">Solicită o ofertă</button>
         </div>
-    </div>
+        <div class="hero-image">
+            <img src="hero-image.jpg" alt="Sablare camion">
+        </div>
+    </section>
 
-    <div class="content">
-        <section id="inainte-dupa">
-            <h2>Înainte și După Sablare</h2>
-            <div class="image-container">
-                <div class="image">
-                    <img src="before.png" alt="Înainte sablare">
-                    <p>Înainte sablare</p>
-                </div>
-                <div class="image">
-                    <img src="after.png" alt="După sablare">
-                    <p>După sablare</p>
-                </div>
-            </div>
-        </section>
+    <section class="testimonial-section">
+        <h2>Ce spun clienții noștri</h2>
+        <div class="testimonial">
+            <p>"Serviciul de sablare a făcut ca remorca mea să arate ca nouă! Recomand cu încredere."</p>
+        </div>
+        <div class="testimonial">
+            <p>"Echipa a fost rapidă, profesionistă și rezultatul a fost excelent!"</p>
+        </div>
+        <div class="testimonial">
+            <p>"Curățarea containerului a fost impecabilă. Cu siguranță voi apela din nou."</p>
+        </div>
+    </section>
 
-        <section id="despre-noi">
-            <h2>Despre Noi</h2>
-            <p>In Odorheiu Secuiesc cu aparat de sablare fix, precum sablare mobilă în toată țara.</p>
-            <p>Ma numesc Attila Faludi, sunt un întreprinzător particular, firma mea, KOROZIO STOP SRL se ocupă de curățirea suprafețelor de mai bine de opt ani.</p>
-            <h3>Execut:</h3>
-            <ul>
-                <li>Curățirea suprafețelor metalice</li>
-                <li>Curățirea și vopsirea șasiurilor de camioane</li>
-                <li>Asamblări camioane</li>
-                <li>Containere</li>
-                <li>Remorci</li>
-                <li>Jante (de oțel și de aluminiu)</li>
-                <li>Curățirea suprafețelor cu caracter de piatră (piatră naturală, piatră funerară, trotuare, parcări etc.)</li>
-                <li>Curățirea, antichizarea suprafețelor cu caracter de lemn</li>
-            </ul>
-            <p>Execut lucrări la punctul de lucru din Odorheiu Secuiesc (într-un atelier de 12 x 5 x 4,30 m) sau sablare mobilă.</p>
-            <p><strong>Adresați-Vă mie cu încredere!</strong></p>
-            <p>Fiind un mic întreprinzător, responsabilitatea și munca personală Va garantează calitatea bună și conștiinciozitatea.</p>
-        </section>
-    </div>
 </body>
 </html>
